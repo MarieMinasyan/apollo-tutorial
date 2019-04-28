@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    gateway:
+        image: node:latest
+        working_dir: /home/node/app
+        environment:
+            - NODE_ENV=dev
+        volumes:
+            - ./gateway:/home/node/app
+        ports:
+            - 3000:3000
+        command: "yarn start"

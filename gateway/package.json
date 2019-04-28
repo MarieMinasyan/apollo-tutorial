@@ -1,0 +1,22 @@
+{
+  "name": "graphql-apollo-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MarieMinasyan/graphql-apollo-tutorial.git",
+  "author": "Marie Minasyan <marie.minassyan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/polyfill": "^7.4.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-watch": "^7.0.0",
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "yarn install && babel-watch src/index.js"
+  }
+}
