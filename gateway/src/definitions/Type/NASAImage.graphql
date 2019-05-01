@@ -1,0 +1,5 @@
+type NASAImage {
+    title: String!
+    description: String!
+    url: String!
+}

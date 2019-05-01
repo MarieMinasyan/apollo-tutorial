@@ -1,0 +1,7 @@
+type APOD {
+    title: String!
+    url: String!
+    date: String
+    explanation: String
+    type: String
+}
