@@ -1,28 +1,23 @@
 import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer, makeExecutableSchema } from 'apollo-server-express';
 
 const PORT = 3000;
 const app = express();
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello, world!'
-  }
-};
+const GraphQLHelper = require('./helpers/graphql');
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema: makeExecutableSchema({
+    typeDefs: GraphQLHelper.typeDefs,
+    resolvers: GraphQLHelper.resolvers,
+  }),
+  dataSources: () => GraphQLHelper.dataSources,
 });
 
 server.applyMiddleware({ app });
 
-app.listen({ port: PORT }, () =>
+app.listen({ port: PORT, expressApp: app }, () =>
   console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
 );
+
+app.get('/', (req, res) => res.send('Hello World!'));
