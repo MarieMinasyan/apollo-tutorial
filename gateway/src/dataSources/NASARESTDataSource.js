@@ -1,5 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
-const API_KEY = 'DEMO_KEY';
+const API_KEY = 'mzjTW0XzJfXTdfljHaXy3SOv77hMDLu6CDAuDdz9';
 
 class NASARESTDataSource extends RESTDataSource {
   willSendRequest(request) {
