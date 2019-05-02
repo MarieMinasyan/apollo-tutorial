@@ -23,7 +23,7 @@ const Home = () => {
           );
         }}
       </Query>
-      <Query query={RANDOM_NASA_IMAGE} variables={{ search: 'raccoon' }}>
+      <Query query={RANDOM_NASA_IMAGE} variables={{ search: 'raccoon' }} fetchPolicy={"network-only"}>
         {({ loading, error, data }) => {
           if (loading) return "Loading...";
           if (error) return `Error! ${error.message}`;

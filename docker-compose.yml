@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+    redis:
+        image: bitnami/redis
+        ports:
+            - 6379:6379
+        environment:
+            REDIS_PASSWORD: 'password'
     gateway:
         image: node:latest
         working_dir: /home/node/app
@@ -11,6 +17,8 @@ services:
         ports:
             - 3000:3000
         command: "yarn start"
+        depends_on:
+            - redis
     front-app:
         image: node:latest
         working_dir: /home/node/app
@@ -21,3 +29,5 @@ services:
         ports:
             - 3001:3000
         command: "yarn start"
+        depends_on:
+            - gateway
